@@ -1,24 +1,23 @@
-# README
+# Sistema de Fretagem
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Descrição
+O sistema visa possibilitar um gerenciamento para companhias de fretagem e o controle de seus serviços
+## Pré requisitos
+* Ruby 3.0+
+* Rails 7.0+
 
-Things you may want to cover:
+## Como rodar
+### Servidor
+```
+$ bundle install
+$ rails db:create
+$ rails s
+```
+### Testes
+```
+$ rspec
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Desenvolvimento
+* <a href="https://github.com/users/nicolasjesse/projects/1">Controle de Tarefas</a>
+* <a href="https://www.figma.com/file/lbIkfkqky9B0bYGL6rGZ5I/Freightage?node-id=0%3A1">Design de Telas</a>
