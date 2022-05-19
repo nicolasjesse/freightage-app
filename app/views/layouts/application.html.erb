@@ -13,7 +13,14 @@
       <div class="header-title">
         <h1>Freightage</h1>
       </div>
+      <nav>
+        <div class="nav-button">
+          <%= link_to I18n.t("pages.home.companies"), companies_path %>
+        </div>
+      </nav>
     </header>
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>
