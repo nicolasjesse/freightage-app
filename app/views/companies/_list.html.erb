@@ -2,11 +2,10 @@
   <% if @companies.any? %>
     <% @companies.each do |company| %>
       <div class="company-card">
-        <p><%= company.brand_name %></p>
-        <p><%= company.email_domain%></p>
+        <div class="brand-name"><%= company.brand_name %></div>
       </div>
     <% end %>
   <% else %>
-    <p>No companies registered</p>
+    <div class="empty-warn">No companies registered</div>
   <% end %>
 </div>

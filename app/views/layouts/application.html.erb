@@ -22,5 +22,8 @@
     <div class="content">
       <%= yield %>
     </div>
+    <div class="flash-messages">
+      <%= flash[:notice] %>
+    </div>
   </body>
 </html>

@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_18_005215) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_20_020442) do
   create_table "companies", force: :cascade do |t|
     t.string "corporate_name"
     t.string "brand_name"
     t.string "email_domain"
     t.string "cnpj"
     t.string "address"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,60 @@
+<div class="form-wrapper">
+  <%= form_with model: @company do |form| %>
+    <div class="input-wrapper">
+      <%= form.label :corporate_name %>
+      <%= form.text_field :corporate_name %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @company.errors.messages[:corporate_name].each do |corporate_name_error| %>
+        <div class="input-errors">
+          <%= corporate_name_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :brand_name %>
+      <%= form.text_field :brand_name %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @company.errors.messages[:brand_name].each do |brand_name_error| %>
+        <div class="input-errors">
+          <%= brand_name_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :email_domain %>
+      <%= form.text_field :email_domain %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @company.errors.messages[:email_domain].each do |email_domain_error| %>
+        <div class="input-errors">
+          <%= email_domain_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :cnpj %>
+      <%= form.text_field :cnpj %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @company.errors.messages[:cnpj].each do |cnpj_error| %>
+        <div class="input-errors">
+          <%= cnpj_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @company.errors.messages[:address].each do |address_error| %>
+        <div class="input-errors">
+          <%= address_error %>
+        </div>
+      <% end %>
+    </div>
+    <%= form.submit %>
+  <% end %>
+</div>

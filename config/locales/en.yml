@@ -5,4 +5,7 @@ en:
     companies:
       index:
         button_create: 'New Company'
+  flashes:
+    company_create_success: 'Company succesfully registered'
+    company_create_error: 'Company could not be registered'
 
