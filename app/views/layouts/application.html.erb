@@ -9,13 +9,14 @@
     <%= stylesheet_link_tag "application" %>
   </head>
   <body>
-    <header>
-      <div class="header-title">
-        <h1>Freightage</h1>
-      </div>
-      <nav>
+    <header class="app-header">
+      <div class="header-title">Freightage</div>
+      <nav class="header-nav">
         <div class="nav-button">
           <%= link_to I18n.t("pages.home.companies"), companies_path %>
+        </div>
+        <div class="nav-button">
+          <a href="#">Something</a>
         </div>
       </nav>
     </header>

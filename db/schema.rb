@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_20_020442) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_23_170522) do
   create_table "companies", force: :cascade do |t|
     t.string "corporate_name"
     t.string "brand_name"
@@ -22,4 +22,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_020442) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "delivery_times", force: :cascade do |t|
+    t.integer "min_distance"
+    t.integer "max_distance"
+    t.integer "days"
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_delivery_times_on_company_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.decimal "min_product_volume"
+    t.decimal "max_product_volume"
+    t.decimal "min_product_weight"
+    t.decimal "max_product_weight"
+    t.decimal "value_by_km"
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_prices_on_company_id"
+  end
+
+  add_foreign_key "delivery_times", "companies"
+  add_foreign_key "prices", "companies"
 end
