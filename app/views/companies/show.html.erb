@@ -24,26 +24,44 @@
     </div>
     <h1>Prices</h1>
     <div class="prices-wrapper">
-      <% @company.prices.each do |price| %>
         <table class="company-price">
           <tr class="price-section">
             <th class="price-section-title">Weight (mg)</th>
             <th class="price-section-title">Volume (m³)</th>
             <th class="price-section-title">Value/KM</th>
           </tr>
+          <% @company.prices.each do |price| %>
+            <tr class="price-section">
+              <td class="price-section-info">
+                <%= price.min_product_weight %> to
+                <%= price.max_product_weight %>
+              </td>
+              <td class="price-section-info">
+                <%= price.min_product_volume %> to
+                <%= price.max_product_volume %>
+              </td>
+              <td class="price-section-info"><%= price.value_by_km %> $</td>
+            </tr>
+          <% end %>
+        </table>
+    </div>
+    <h1>Delivery Terms</h1>
+    <div class="delivery-wrapper">
+      <table class="company-price">
+          <tr class="price-section">
+            <th class="price-section-title">Distance (KM)</th>
+            <th class="price-section-title">Days</th>
+          </tr>
+      <% @company.delivery_times.each do |delivery_time| %>
           <tr class="price-section">
             <td class="price-section-info">
-              <%= price.min_product_weight %> to
-              <%= price.max_product_weight %>
+              <%= delivery_time.min_distance %> to
+              <%= delivery_time.max_distance %>
             </td>
-            <td class="price-section-info">
-              <%= price.min_product_volume %> to
-              <%= price.max_product_volume %>
-            </td>
-            <td class="price-section-info"><%= price.value_by_km %></td>
+            <td class="price-section-info"><%= delivery_time.days %></td>
           </tr>
-        </table>
       <% end %>
+      </table>
     </div>
   </div>
 </div>

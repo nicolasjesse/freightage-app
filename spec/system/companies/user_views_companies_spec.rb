@@ -3,10 +3,10 @@ require 'rails_helper'
 describe 'User views companies' do
   it 'succesfully' do
     company = Company.create!(corporate_name: 'Fic SMLT', brand_name: 'Fic Entregas',
-                              email_domain: 'fic.com.br', cnpj: '00366576000177',
+                              email_domain: 'fic.com.br', cnpj: '58.139.059/0001-45',
                               address: 'Bairro Fic, Cidade Fic', active: true)   
     another_company = Company.create!(corporate_name: 'ABC SMLT', brand_name: 'ABC Entregas',
-                                      email_domain: 'abc.com.br', cnpj: '31227513000163',
+                                      email_domain: 'abc.com.br', cnpj: '96.797.547/0001-39',
                                       address: 'Bairro ABC, Cidade ABC', active: true)   
 
     visit root_path

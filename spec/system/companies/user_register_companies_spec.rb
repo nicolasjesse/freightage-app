@@ -22,7 +22,7 @@ describe 'User register company' do
     fill_in 'Brand name', with: 'Fic Entregas'
     fill_in 'Corporate name', with: 'Fic LTDA'
     fill_in 'Email domain', with: 'fic.com.br'
-    fill_in 'Cnpj', with: '25611805000100'
+    fill_in 'Cnpj', with: '96.797.547/0001-39'
     fill_in 'Address', with: 'Rua Fic, Bairro Fic, Fic'
 
     click_on 'Create Company'

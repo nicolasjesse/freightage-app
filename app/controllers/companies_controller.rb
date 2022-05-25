@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     2.times { @company.prices.build }
+    2.times { @company.delivery_times.build }
   end
 
   def create
