@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  # before_action :authenticate_user!, only: [:index]
+
   def index
     @companies = Company.where(active: true)
   end
