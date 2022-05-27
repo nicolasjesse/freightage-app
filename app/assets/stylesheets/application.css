@@ -1,15 +1,153 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background-color: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  color: inherit
+}
+
+.app-header {
+  display: flex;
+  height: 50px;
+  padding: 15px;
+  background-color: rgba(110, 112, 110, 1);
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 30px;
+  color: white;
+}
+
+.header-nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.nav-button {
+  font-size: 26px;
+  border-radius: 5px;
+  border: solid 1px white;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 15px;
+  margin-left: 10px;
+  color: rgba(60, 70, 65, 0.9);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  width: 98vw;
+}
+
+/* INDEX COMPANY */
+
+.button-create-company {
+  display: flex;
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px rgba(60, 70, 65, 0.5);
+}
+
+.companies-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+a {
+  text-decoration: none;
+  height: fit-content;
+  width: fit-content;
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80px;
+  width: 200px;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 15px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: rgba(110, 110, 110, 0.8);
+  color: rgb(255, 255, 255);
+  border: solid 1px rgba(110, 110, 110, 1);
+}
+
+/* SHOW COMPANY */
+
+.show-company {
+  margin-left: 10px;
+}
+
+.company-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.company-details .info-wrapper {
+  display: flex;
+  height: 38px;
+  align-items: center;
+}
+
+.company-details .info-title {
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  margin-right: 7px;
+}
+
+.company-details .info-value {
+  font-size: 18px;
+}
+
+.company-details .company-price {
+  display: flex;
+}
+
+.company-price .price-section {
+  display: flex;
+}
+
+.price-section-title, .price-section-info {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.price-section-title {
+  font-size: 20px;
+  font-weight: lighter;
+  box-shadow: 1px 1px 1px 2px;
+}
+
+.price-section-info {
+  font-size: 18px;
+  margin-top: 5px;
+}

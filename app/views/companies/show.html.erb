@@ -1,0 +1,67 @@
+<div class="show-company">
+  <h1><%= I18n.t("pages.companies.show.title") %></h1>
+
+  <div class="company-details">
+    <div class="info-wrapper">
+      <div class="info-title">Corporate Name: </div>
+      <div class="info-value"><%= @company.corporate_name %></div>
+    </div>
+    <div class="info-wrapper">
+      <div class="info-title">Brand Name: </div>
+      <div class="info-value"><%= @company.brand_name %></div>
+    </div>
+    <div class="info-wrapper">
+      <div class="info-title">Email Domain: </div>
+      <div class="info-value"><%= @company.email_domain %></div>
+    </div>
+    <div class="info-wrapper">
+      <div class="info-title">CNPJ: </div>
+      <div class="info-value"><%= @company.cnpj %></div>
+    </div>
+    <div class="info-wrapper">
+      <div class="info-title">Address: </div>
+      <div class="info-value"><%= @company.address %></div>
+    </div>
+    <h1>Prices</h1>
+    <div class="prices-wrapper">
+        <table class="company-price">
+          <tr class="price-section">
+            <th class="price-section-title">Weight (mg)</th>
+            <th class="price-section-title">Volume (m³)</th>
+            <th class="price-section-title">Value/KM</th>
+          </tr>
+          <% @company.prices.each do |price| %>
+            <tr class="price-section">
+              <td class="price-section-info">
+                <%= price.min_product_weight %> to
+                <%= price.max_product_weight %>
+              </td>
+              <td class="price-section-info">
+                <%= price.min_product_volume %> to
+                <%= price.max_product_volume %>
+              </td>
+              <td class="price-section-info">$ <%= price.value_by_km %></td>
+            </tr>
+          <% end %>
+        </table>
+    </div>
+    <h1>Delivery Terms</h1>
+    <div class="delivery-wrapper">
+      <table class="company-price">
+          <tr class="price-section">
+            <th class="price-section-title">Distance (KM)</th>
+            <th class="price-section-title">Days</th>
+          </tr>
+      <% @company.delivery_times.each do |delivery_time| %>
+          <tr class="price-section">
+            <td class="price-section-info">
+              <%= delivery_time.min_distance %> to
+              <%= delivery_time.max_distance %>
+            </td>
+            <td class="price-section-info"><%= delivery_time.days %></td>
+          </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
