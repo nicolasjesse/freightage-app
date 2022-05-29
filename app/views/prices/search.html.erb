@@ -1,0 +1,6 @@
+<%= @prices.length %>
+<% @prices.each do |price| %>
+  <div>
+    $ <%= price.value_by_km * @distance %>
+  </div>
+<% end %>
