@@ -1,13 +1,10 @@
 <div class="companies-wrapper">
-  
   <% if @companies.any? %>
     <% @companies.each do |company| %>
-      <a href="<%= company_path(company) %>" class="link">
-        <div class="company-card">
-          <div class="brand-name"><%= company.brand_name %></div>
-          <div class="email-domain"><%= company.email_domain %></div>
-        </div>
-      </a>
+      <div class="company-card">
+        <div class="brand-name"><%= link_to company.brand_name, company_path(company) %></div>
+        <div class="email-domain"><%= company.email_domain %></div>
+      </div>
     <% end %>
   <% else %>
     <div class="empty-warn">No companies registered</div>

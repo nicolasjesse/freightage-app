@@ -5,7 +5,9 @@ describe 'User sign in' do
     User.create!(email: 'user@freightagesystem.com', password: 'password')
 
     visit root_path
-    click_on 'Log in'
+    within('nav') do
+      click_on 'Log in'
+    end
 
     within('form') do
       fill_in 'Email', with: 'user@freightagesystem.com'
@@ -25,7 +27,6 @@ describe 'User sign in' do
     User.create!(email: 'user@freightagesystem.com', password: 'password')
 
     visit root_path
-    click_on 'Log in'
 
     within('form') do
       fill_in 'Email', with: 'user@freightagesystem.com'
@@ -34,7 +35,6 @@ describe 'User sign in' do
     end
     click_on 'Log out'
 
-    expect(page).to have_content 'Signed out successfully'
     expect(page).to have_content 'Log in'
     expect(page).not_to have_button 'Sair'
     expect(page).not_to have_content 'user@freightagesystem.com'

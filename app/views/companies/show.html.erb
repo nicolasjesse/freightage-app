@@ -22,11 +22,11 @@
       <div class="info-title">Address: </div>
       <div class="info-value"><%= @company.address %></div>
     </div>
-    <h1>Prices</h1>
+    <h2>Prices</h2>
     <div class="prices-wrapper">
         <table class="company-price">
           <tr class="price-section">
-            <th class="price-section-title">Weight (mg)</th>
+            <th class="price-section-title">Weight (g)</th>
             <th class="price-section-title">Volume (m³)</th>
             <th class="price-section-title">Value/KM</th>
           </tr>
@@ -40,12 +40,12 @@
                 <%= price.min_product_volume %> to
                 <%= price.max_product_volume %>
               </td>
-              <td class="price-section-info">$ <%= price.value_by_km %></td>
+              <td class="price-section-info"><%= number_to_currency(price.value_by_km) %></td>
             </tr>
           <% end %>
         </table>
     </div>
-    <h1>Delivery Terms</h1>
+    <h2>Delivery Terms</h2>
     <div class="delivery-wrapper">
       <table class="company-price">
           <tr class="price-section">

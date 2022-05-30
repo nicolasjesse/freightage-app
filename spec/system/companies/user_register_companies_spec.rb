@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe 'User register company' do
   it 'from the main menu' do
+    admin = User.create!(email: 'admin@freightagesystem.com', password: 'password')
+    login_as(admin, :scope => :user)
+
     visit root_path
     click_on 'Companies'
     click_on 'New Company'
@@ -15,6 +18,9 @@ describe 'User register company' do
   end
 
   it 'successfully' do
+    admin = User.create!(email: 'admin@freightagesystem.com', password: 'password')
+    login_as(admin, :scope => :user)
+
     visit root_path
     click_on 'Companies'
     click_on 'New Company'

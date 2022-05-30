@@ -3,7 +3,6 @@ require 'rails_helper'
 describe 'User sign up' do
   it 'successfully' do
     visit root_path
-    click_on 'Log in'
     click_on 'Sign up'
     fill_in 'Name', with: 'Michael'
     fill_in 'Email', with: 'user22@freightagesystem.com'

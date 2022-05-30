@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_204503) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_30_061720) do
   create_table "companies", force: :cascade do |t|
     t.string "corporate_name"
     t.string "brand_name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_204503) do
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "base_price"
   end
 
   create_table "delivery_times", force: :cascade do |t|
@@ -44,6 +45,38 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_204503) do
     t.index ["company_id"], name: "index_prices_on_company_id"
   end
 
+  create_table "routes", force: :cascade do |t|
+    t.datetime "date_time"
+    t.string "latitude"
+    t.string "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "service_orders", force: :cascade do |t|
+    t.string "code"
+    t.string "product_address"
+    t.string "product_code"
+    t.decimal "product_height"
+    t.decimal "product_width"
+    t.decimal "product_depth"
+    t.decimal "product_weight"
+    t.integer "status", default: 0
+    t.string "recipient_address"
+    t.string "recipient_name"
+    t.string "recipient_id"
+    t.decimal "cost"
+    t.integer "company_id"
+    t.integer "price_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "vehicle_id"
+    t.integer "distance"
+    t.index ["company_id"], name: "index_service_orders_on_company_id"
+    t.index ["price_id"], name: "index_service_orders_on_price_id"
+    t.index ["vehicle_id"], name: "index_service_orders_on_vehicle_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,7 +93,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_204503) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.string "plate"
+    t.string "brand"
+    t.string "model"
+    t.string "year_of_fabrication"
+    t.decimal "capacity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "delivery_times", "companies"
   add_foreign_key "prices", "companies"
+  add_foreign_key "service_orders", "companies"
+  add_foreign_key "service_orders", "prices"
+  add_foreign_key "service_orders", "vehicles"
   add_foreign_key "users", "companies"
 end

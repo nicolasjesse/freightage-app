@@ -10,6 +10,9 @@ describe 'User views specific company' do
     price = Price.create!(min_product_volume: 3, max_product_volume: 0.67, min_product_weight: 0,
                       max_product_weight: 10000, value_by_km: 0.81, company: company)
 
+    admin = User.create!(email: 'admin@freightagesystem.com', password: 'password')
+    login_as(admin, :scope => :user)
+
     visit root_path
     click_on 'Companies'
     click_on 'Fic Entregas'

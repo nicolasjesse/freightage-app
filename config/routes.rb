@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :prices, only: [] do
     get 'search', on: :collection
   end
+
+  resources :service_orders, only: [:new, :create, :show, :edit, :update]
 end

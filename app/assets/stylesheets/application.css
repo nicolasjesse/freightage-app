@@ -9,13 +9,144 @@
 .header-nav {
   display: flex;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: flex-end;
+}
+
+.header-nav div {
+  margin: 0px 10px;
+}
+
+.content {
+  margin-left: 20px;
+}
+
+.companies-wrapper {
+  margin-top: 15px;
+}
+
+.prices-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  display: flex;
+}
+
+.price .info {
+  display: flex;
+  margin-right: 10px;
+}
+
+.price .info div {
+  margin-right: 5px;
 }
 
 body {
   display: flex;
   flex-direction: column;
   margin: 0px;
+}
+
+.form-field {
+  display: flex;
+  justify-content: flex-end;
+  width: 200px;
+  margin-bottom: 2px;
+}
+
+.form-field input {
+  width: 70px;
+}
+
+.form-field label {
+  margin-right: 10px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-button {
+  margin-top: 10px;
+  margin-left: 130px;
+}
+
+.company-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.company-details .info-wrapper {
+  display: flex;
+  height: 34px;
+  align-items: center;
+}
+
+.company-details .info-title {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  margin-right: 7px;
+}
+
+.company-details .info-value {
+  font-size: 16px;
+}
+
+.company-details .company-price {
+  display: flex;
+}
+
+.company-price .price-section {
+  display: flex;
+}
+
+.price-section-title, .price-section-info {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.price-section-title {
+  font-size: 16px;
+  font-weight: lighter;
+  box-shadow: 0px 0px 0px 1px;
+}
+
+.price-section-info {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 350px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-prices {
+  display: flex;
+}
+
+.search-results-wrapper {
+  margin-left: 20px;
 }
 
 /*
