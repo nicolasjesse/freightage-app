@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-  <h2>Create Delivery Term</h2>
+  <h2><%= I18n.t("pages.delivery_times.title") %></h2>
   <%= form_with model: [@company, @delivery_time] do |form| %>
     <div class="input-wrapper">
       <%= form.label :min_distance %>
@@ -34,6 +34,6 @@
         </div>
       <% end %>
     </div>
-    <%= form.submit 'Register Delivery Term' %>
+    <%= form.submit I18n.t("pages.delivery_times.form.submit") %>
   <% end %>
 </div>

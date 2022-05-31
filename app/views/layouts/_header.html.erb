@@ -1,23 +1,23 @@
 <header class="app-header">
-  <div class="header-title">Freightage</div>
+  <div class="header-title"><%= I18n.t("pages.layouts.header.title") %></div>
   <nav class="header-nav">
-    <div class="nav-button"><%= link_to 'Track', track_service_order_path %></div>
+    <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.track"), track_service_order_path %></div>
     <% if user_signed_in? %>
-      <div class="nav-button"><%= link_to 'Home', root_path %></div>
+      <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.home"), root_path %></div>
       <% if current_user.user_type == 'admin' %>
-        <div class="nav-button"><%= link_to 'Search Prices', search_prices_path %></div>
-        <div class="nav-button"><%= link_to 'Service Orders', service_orders_path %></div>
-        <div class="nav-button"><%= link_to I18n.t("pages.home.companies"), companies_path %></div>
+        <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.search_prices"), search_prices_path %></div>
+        <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.service_orders_admin"), service_orders_path %></div>
+        <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.companies"), companies_path %></div>
       <% elsif current_user.user_type == 'company_member' %>
-        <div class="nav-button"><%= link_to 'Vehicles', company_vehicles_path(current_user.company.id) %></div>
-        <div class="nav-button"><%= link_to 'Service Orders', service_orders_path %></div>
+        <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.vehicles"), company_vehicles_path(current_user.company.id) %></div>
+        <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.service_orders_user"), service_orders_path %></div>
       <% end %>
       <div><%= current_user.email %></div>
       <div class="nav-button">
-        <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+        <%= button_to I18n.t("pages.layouts.header.logout"), destroy_user_session_path, method: :delete %>
       </div>
     <% else %>
-      <div class="nav-button"><%= link_to 'Log in', new_user_session_path %></div>
+      <div class="nav-button"><%= link_to I18n.t("pages.layouts.header.login"), new_user_session_path %></div>
     <% end %>
   </nav>
 </header>

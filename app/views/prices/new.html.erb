@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-  <h2>Create Price</h2>
+  <h2><%= I18n.t("pages.prices.new.title") %></h2>
   <%= form_with model: [@company, @price] do |form| %>
     <div class="input-wrapper">
       <%= form.label :min_product_volume %>
@@ -56,6 +56,6 @@
         </div>
       <% end %>
     </div>
-    <%= form.submit 'Register Price' %>
+    <%= form.submit I18n.t("pages.prices.new.form.submit") %>
   <% end %>
 </div>

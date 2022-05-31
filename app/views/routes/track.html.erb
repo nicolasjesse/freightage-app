@@ -2,7 +2,7 @@
   <%= form_with(url: track_service_order_path, :method => :get) do |form| %>
     <%= form.label :code %>
     <%= form.text_field :code %>
-    <%= form.submit 'Track' %>
+    <%= form.submit I18n.t("pages.routes.track.form.submit") %>
   <% end %>
 </div>
 <div>

@@ -1,6 +1,6 @@
 <div class="index-vehicles">
   <div class="button-create-vehicle">
-    <%= link_to '+ New Vehicle', new_company_vehicle_path(current_user.company.id) %>
+    <%= link_to I18n.t("pages.vehicles.index.new_vehicle"), new_company_vehicle_path(current_user.company.id) %>
   </div>
   <% @vehicles.each do |vehicle| %>
     <div class="vehicle-wrapper">

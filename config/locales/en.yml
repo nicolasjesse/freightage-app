@@ -1,12 +1,122 @@
 en:
   pages:
-    home:
-      companies: 'Companies'
     companies:
       index:
         button_create: '+ New Company'
+        empty_warn: 'No companies registered'
       show:
         title: 'Company Details'
+        form:
+          corporate_name: 'Corporate Name: '
+          brand_name: 'Brand Name: '
+          email_domain: 'Email Domain: '
+          cnpj: 'CNPJ: '
+          address: 'Address: '
+        prices:
+          title: 'Prices'
+          weight: 'Weight (g)'
+          volume: 'Volume (m³)'
+          value: 'Value (km)'
+          between: 'to'
+          add_link: 'Add Price'
+        delivery_terms:
+          distance: 'Distance (km)'
+          days: 'Days'
+          between: 'to'
+          add_link: 'Add Delivery Term'
+    delivery_times:
+      title: 'Create Delivery Term'
+      form:
+        submit: 'Register Delivery Term'
+    layouts:
+      title: 'Freightage App'
+      header:
+        title: 'Freightage'
+        track: 'Track'
+        home: 'Home'
+        search_prices: 'Search Prices'
+        service_orders_admin: 'Service Orders'
+        companies: 'Companies'
+        vehicles: 'Vehicles'
+        service_orders_user: 'Service Orders'
+        logout: 'Log out'
+        login: 'Log in'
+    prices:
+      new:
+        title: 'Create Price'
+        form:
+          submit: 'Register Price'
+      search:
+        form:
+          height: 'Height (m)'
+          width: 'Width (m)'
+          depth: 'Depth (m)'
+          weight: 'Weight (g)'
+          distance: 'Distance (km)'
+          submit: 'Search'
+        result:
+          company: 'Company: '
+          price: 'Price: '
+          estimated: 'Estimated: '
+          submit: 'Open Service Order'
+          no_prices_found: 'No Prices Found'
+    routes:
+      new:
+        title: 'Register Route'
+        form:
+          submit: 'Register Route'
+      track:
+        form:
+          submit: 'Track'
+    service_orders:
+      edit_vehicle:
+        form:
+          vehicle: 'Vehicle'
+          submit: 'Save vehicle'
+      index:
+        title: 'Service Orders'
+        list:
+          code: 'Code: '
+          status: 'Status: '
+          vehicle: 'Vehicle: '
+          no_vehicle: 'No vehicle'
+      show:
+        detail:
+          status: 'Status: '
+          code: 'Code: '
+          product_address: 'Product Address: '
+          product_code: 'Product Code: '
+          product_volume: 'Product Volume: '
+          recipient_address: 'Recipient Address: '
+          recipient_name: 'Recipient Name: '
+          recipient_identity: 'Recipient Identity: '
+          company: 'Company: '
+          no_company: 'No Company'
+          cost: 'Total cost: '
+          vehicle: 'Vehicle: '
+          no_vehicle: 'No Vehicle'
+        actions:
+          change_vehicle: 'Change Vehicle'
+          approve: 'Approve Service Order'
+          disapprove: 'Disapprove Service Order'
+          finish: 'Finish Service Order'
+          add_route: 'Add Route'
+        routes:
+          title: 'Routes'
+    vehicles:
+      index:
+        new_vehicle: '+ New Vehicle'
+      new:
+        title: 'Create Vehicle'
+        year: 'Year'
+        capacity: 'Capacity (kg)'
+        submit: 'Register Vehicle'
+      show:
+        plate: 'Plate: '
+        brand: 'Brand: '
+        model: 'Model: '
+        year: 'Year: '
+        capacity: 'Capacity: '
   flashes:
     company_create_success: 'Company successfully registered!'
     company_create_error: 'Company could not be registered'

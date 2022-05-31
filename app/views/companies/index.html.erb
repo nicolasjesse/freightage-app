@@ -10,6 +10,6 @@
       </div>
     <% end %>
   <% else %>
-    <div class="empty-warn">No companies registered</div>
+    <div class="empty-warn"><%= link_to I18n.t("pages.companies.index.empty_warn") %></div>
   <% end %>
 </div>

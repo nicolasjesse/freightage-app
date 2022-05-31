@@ -14,7 +14,7 @@ describe 'User views company' do
 
     visit root_path
     within('nav') do
-      click_on 'Company'
+      click_on 'Home'
     end
 
     expect(page).to have_content 'Company Details'

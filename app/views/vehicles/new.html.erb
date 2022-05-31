@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-  <h2>Create Vehicle</h2>
+  <h2><%= I18n.t("pages.vehicles.new.title") %></h2>
   <%= form_with(url: company_vehicles_path) do |form| %>
     <div class="input-wrapper">
       <%= form.label :plate %>
@@ -14,13 +14,13 @@
       <%= form.text_field :model %>
     </div>
     <div class="input-wrapper">
-      <%= form.label :year_of_fabrication, 'Year' %>
+      <%= form.label :year_of_fabrication, I18n.t("pages.vehicles.new.year") %>
       <%= form.text_field :year_of_fabrication %>
     </div>
     <div class="input-wrapper">
-      <%= form.label :capacity %>
+      <%= form.label :capacity, I18n.t("pages.vehicles.new.capacity") %>
       <%= form.number_field :capacity %>
     </div>
-    <%= form.submit 'Register Vehicle' %>
+    <%= form.submit I18n.t("pages.vehicles.new.submit") %>
   <% end %>
 </div>

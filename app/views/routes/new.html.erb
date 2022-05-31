@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-  <h2>Register Route</h2>
+  <h2><%= I18n.t("pages.routes.new.title") %></h2>
   <%= form_with model: [@service_order, @route] do |form| %>
     <div class="input-wrapper">
       <%= form.label :date_time %>
@@ -13,6 +13,6 @@
       <%= form.label :longitude %>
       <%= form.text_field :longitude %>
     </div>
-    <%= form.submit 'Register Route' %>
+    <%= form.submit I18n.t("pages.routes.new.form.submit") %>
   <% end %>
 </div>

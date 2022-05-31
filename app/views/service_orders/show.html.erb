@@ -1,33 +1,33 @@
 <div class="show-service-order">
-  <div>Status: <%= @service_order.status.upcase %></div>
-  <div>Code: <%= @service_order.code %></div>
-  <div>Product Address: <%= @service_order.product_address %></div>
-  <div>Product Code: <%= @service_order.product_code %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.status") %><%= @service_order.status.upcase %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.code") %><%= @service_order.code %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.product_address") %><%= @service_order.product_address %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.product_code") %><%= @service_order.product_code %></div>
   <div>
-    Product Volume:
+    <%= I18n.t("pages.service_orders.show.detail.product_volume") %>
     <%= @service_order.product_height *
       @service_order.product_width *
       @service_order.product_depth %>
   </div>
-  <div>Recipient Address: <%= @service_order.recipient_address %></div>
-  <div>Recipient Name: <%= @service_order.recipient_name %></div>
-  <div>Recipient Identity: <%= @service_order.recipient_id %></div>
-  <div>Company: <%= @service_order.company.brand_name %></div>
-  <div>Total cost: <%= number_to_currency(@service_order.cost) %></div>
-  <div>Vehicle: <%= @service_order.vehicle ? "#{@service_order.vehicle.brand} #{@service_order.vehicle.model} #{@service_order.vehicle.plate}" : 'No vehicle' %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.recipient_address") %><%= @service_order.recipient_address %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.recipient_name") %><%= @service_order.recipient_name %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.recipient_identity") %><%= @service_order.recipient_id %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.company") %><%= @service_order.company ? @service_order.company.brand_name : I18n.t("pages.service_orders.show.detail.no_company") %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.cost") %><%= number_to_currency(@service_order.cost) %></div>
+  <div><%= I18n.t("pages.service_orders.show.detail.vehicle") %><%= @service_order.vehicle ? "#{@service_order.vehicle.brand} #{@service_order.vehicle.model} #{@service_order.vehicle.plate}" : I18n.t("pages.service_orders.show.detail.no_vehicle") %></div>
   <% if current_user.user_type == 'company_member' %>
     <% if @service_order.pending? %>
-      <%= link_to 'Change vehicle', edit_vehicle_service_order_path %>
-      <%= button_to 'Approve Service Order', approve_service_order_path(@service_order.id) %>
-      <%= button_to 'Disapprove Service Order', disapprove_service_order_path(@service_order.id) %>
+      <%= link_to I18n.t("pages.service_orders.show.actions.change_vehicle"), edit_vehicle_service_order_path %>
+      <%= button_to I18n.t("pages.service_orders.show.actions.approve"), approve_service_order_path(@service_order.id) %>
+      <%= button_to I18n.t("pages.service_orders.show.actions.disapprove"), disapprove_service_order_path(@service_order.id) %>
     <% elsif @service_order.approved? %>
-      <%= button_to 'Finish Service Order', finish_service_order_path(@service_order.id) %>
-      <%= link_to 'Add route register', new_service_order_route_path(@service_order.id) %>
+      <%= button_to I18n.t("pages.service_orders.show.actions.finish"), finish_service_order_path(@service_order.id) %>
+      <%= link_to I18n.t("pages.service_orders.show.actions.add_route"), new_service_order_route_path(@service_order.id) %>
     <% end %>
   <% end %>
   <% if @service_order.routes.any? %>
   <div class="routes-section">
-    <h2>Routes</h2>
+    <h2><%= I18n.t("pages.service_orders.show.routes.title") %></h2>
     <% @service_order.routes.each do |route| %>
       <div class="route-wrapper">
         <%= route.latitude %>

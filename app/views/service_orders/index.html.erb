@@ -1,10 +1,10 @@
-<h2>Service Orders</h2>
+<h2><%= I18n.t("pages.service_orders.index.title") %></h2>
 <div class="list-service-order">
   <% @service_orders.each do |service_order| %>
     <div class="service-order-wrapper">
-      <div>Code: <%= link_to service_order.code, service_order_path(service_order) %></div>
-      <div>Status: <%= service_order.status.upcase %></div>
-      <%= service_order.vehicle ? "Vehicle: #{service_order.vehicle.model}" : 'No vehicle' %>
+      <div><%= I18n.t("pages.service_orders.index.list.code") %><%= link_to service_order.code, service_order_path(service_order) %></div>
+      <div><%= I18n.t("pages.service_orders.index.list.status") %><%= service_order.status.upcase %></div>
+      <%= service_order.vehicle ? "#{I18n.t("pages.service_orders.index.list.vehicle") + service_order.vehicle.model}" : I18n.t("pages.service_orders.index.list.no_vehicle") %>
     </div>
   <% end %>
 </div>

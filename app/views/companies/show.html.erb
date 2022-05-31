@@ -3,41 +3,41 @@
 
   <div class="company-details">
     <div class="info-wrapper">
-      <div class="info-title">Corporate Name: </div>
+      <div class="info-title"><%= I18n.t("pages.companies.show.form.corporate_name") %></div>
       <div class="info-value"><%= @company.corporate_name %></div>
     </div>
     <div class="info-wrapper">
-      <div class="info-title">Brand Name: </div>
+      <div class="info-title"><%= I18n.t("pages.companies.show.form.brand_name") %></div>
       <div class="info-value"><%= @company.brand_name %></div>
     </div>
     <div class="info-wrapper">
-      <div class="info-title">Email Domain: </div>
+      <div class="info-title"><%= I18n.t("pages.companies.show.form.email_domain") %></div>
       <div class="info-value"><%= @company.email_domain %></div>
     </div>
     <div class="info-wrapper">
-      <div class="info-title">CNPJ: </div>
+      <div class="info-title"><%= I18n.t("pages.companies.show.form.cnpj") %></div>
       <div class="info-value"><%= @company.cnpj %></div>
     </div>
     <div class="info-wrapper">
-      <div class="info-title">Address: </div>
+      <div class="info-title"><%= I18n.t("pages.companies.show.form.address") %></div>
       <div class="info-value"><%= @company.address %></div>
     </div>
-    <h2>Prices</h2>
+    <h2><%= I18n.t("pages.companies.show.prices.title") %></h2>
     <div class="prices-wrapper">
         <table class="company-price">
           <tr class="price-section">
-            <th class="price-section-title">Weight (g)</th>
-            <th class="price-section-title">Volume (m³)</th>
-            <th class="price-section-title">Value/KM</th>
+            <th class="price-section-title"><%= I18n.t("pages.companies.show.prices.weight") %></th>
+            <th class="price-section-title"><%= I18n.t("pages.companies.show.prices.volume") %></th>
+            <th class="price-section-title"><%= I18n.t("pages.companies.show.prices.value") %></th>
           </tr>
           <% @company.prices.each do |price| %>
             <tr class="price-section">
               <td class="price-section-info">
-                <%= price.min_product_weight %> to
+                <%= price.min_product_weight %> <%= I18n.t("pages.companies.show.prices.between") %>
                 <%= price.max_product_weight %>
               </td>
               <td class="price-section-info">
-                <%= price.min_product_volume %> to
+                <%= price.min_product_volume %> <%= I18n.t("pages.companies.show.prices.between") %>
                 <%= price.max_product_volume %>
               </td>
               <td class="price-section-info"><%= number_to_currency(price.value_by_km) %></td>
@@ -45,20 +45,20 @@
           <% end %>
         </table>
         <% if current_user.company_member? %>
-          <%= link_to 'Add Price', new_company_price_path(@company.id) %>
+          <%= link_to I18n.t("pages.companies.show.prices.add_link"), new_company_price_path(@company.id) %>
         <% end %>
     </div>
     <h2>Delivery Terms</h2>
     <div class="delivery-wrapper">
       <table class="company-price">
           <tr class="price-section">
-            <th class="price-section-title">Distance (KM)</th>
-            <th class="price-section-title">Days</th>
+            <th class="price-section-title"><%= I18n.t("pages.companies.show.delivery_terms.distance") %></th>
+            <th class="price-section-title"><%= I18n.t("pages.companies.show.delivery_terms.days") %></th>
           </tr>
       <% @company.delivery_times.each do |delivery_time| %>
           <tr class="price-section">
             <td class="price-section-info">
-              <%= delivery_time.min_distance %> to
+              <%= delivery_time.min_distance %> <%= I18n.t("pages.companies.show.delivery_terms.between") %>
               <%= delivery_time.max_distance %>
             </td>
             <td class="price-section-info"><%= delivery_time.days %></td>
@@ -66,7 +66,7 @@
       <% end %>
       </table>
       <% if current_user.company_member? %>
-        <%= link_to 'Add Delivery Term', new_company_delivery_time_path(@company.id) %>
+        <%= link_to I18n.t("pages.companies.show.delivery_terms.add_link"), new_company_delivery_time_path(@company.id) %>
       <% end %>
     </div>
   </div>
