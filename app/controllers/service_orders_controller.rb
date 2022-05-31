@@ -1,4 +1,5 @@
 class ServiceOrdersController < ApplicationController
+  before_action :authenticate_user!
   def show
     @service_order = ServiceOrder.find(params[:id])
   end

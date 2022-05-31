@@ -44,6 +44,9 @@
             </tr>
           <% end %>
         </table>
+        <% if current_user.company_member? %>
+          <%= link_to 'Add Price', new_company_price_path(@company.id) %>
+        <% end %>
     </div>
     <h2>Delivery Terms</h2>
     <div class="delivery-wrapper">
@@ -62,6 +65,9 @@
           </tr>
       <% end %>
       </table>
+      <% if current_user.company_member? %>
+        <%= link_to 'Add Delivery Term', new_company_delivery_time_path(@company.id) %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 <header class="app-header">
   <div class="header-title">Freightage</div>
   <nav class="header-nav">
+    <div class="nav-button"><%= link_to 'Track', track_service_order_path %></div>
     <% if user_signed_in? %>
       <div class="nav-button"><%= link_to 'Home', root_path %></div>
       <% if current_user.user_type == 'admin' %>
@@ -8,11 +9,8 @@
         <div class="nav-button"><%= link_to 'Service Orders', service_orders_path %></div>
         <div class="nav-button"><%= link_to I18n.t("pages.home.companies"), companies_path %></div>
       <% elsif current_user.user_type == 'company_member' %>
-        <div class="nav-button"><%= link_to 'Company', company_path(current_user.company.id) %></div>
         <div class="nav-button"><%= link_to 'Vehicles', company_vehicles_path(current_user.company.id) %></div>
         <div class="nav-button"><%= link_to 'Service Orders', service_orders_path %></div>
-        <div class="nav-button"><%= link_to 'Prices', service_orders_path %></div>
-        <div class="nav-button"><%= link_to 'Time Estimative', service_orders_path %></div>
       <% end %>
       <div><%= current_user.email %></div>
       <div class="nav-button">

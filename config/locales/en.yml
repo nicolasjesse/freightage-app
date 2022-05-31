@@ -14,8 +14,11 @@ en:
     vehicle_create_error: 'Vehicle could not be registered'
     service_order_create_success: 'Service Order successfully registered!'
     service_order_create_error: 'Service Order could not be registered'
+    route_create_success: 'Route successfully registered!'
+    route_create_error: 'Route could not be registered'
     service_order_approve_success: 'Service Order approved successfully!'
     service_order_approve_error: 'Service Order could not be approved due to missing some fields'
     service_order_vehicle_change_success: 'Vehicle in Service Order changed successfully!'
     service_order_vehicle_change_error: 'Vehicle in Service Order could not be changed'
+    track_code_doesnt_exist: 'The code is not valid'
 

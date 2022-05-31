@@ -22,6 +22,19 @@
       <%= button_to 'Disapprove Service Order', disapprove_service_order_path(@service_order.id) %>
     <% elsif @service_order.approved? %>
       <%= button_to 'Finish Service Order', finish_service_order_path(@service_order.id) %>
+      <%= link_to 'Add route register', new_service_order_route_path(@service_order.id) %>
     <% end %>
+  <% end %>
+  <% if @service_order.routes.any? %>
+  <div class="routes-section">
+    <h2>Routes</h2>
+    <% @service_order.routes.each do |route| %>
+      <div class="route-wrapper">
+        <%= route.latitude %>
+        <%= route.longitude %>
+        <%= route.date_time %>
+      </div>
+    <% end %>
+  </div>
   <% end %>
 </div>

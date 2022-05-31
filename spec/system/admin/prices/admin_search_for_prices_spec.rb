@@ -19,7 +19,7 @@ describe 'Admin search for prices' do
       click_on 'Search'    
     end
 
-    expect(current_path).to eq '/prices/search'
+    expect(current_path).to eq '/search'
     expect(page).to have_content 'No Prices Found'
   end
 

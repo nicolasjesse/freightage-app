@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_023108) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_31_111725) do
   create_table "companies", force: :cascade do |t|
     t.string "corporate_name"
     t.string "brand_name"
@@ -51,6 +51,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_023108) do
     t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_order_id", null: false
+    t.index ["service_order_id"], name: "index_routes_on_service_order_id"
   end
 
   create_table "service_orders", force: :cascade do |t|
@@ -107,6 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_023108) do
 
   add_foreign_key "delivery_times", "companies"
   add_foreign_key "prices", "companies"
+  add_foreign_key "routes", "service_orders"
   add_foreign_key "service_orders", "companies"
   add_foreign_key "service_orders", "prices"
   add_foreign_key "service_orders", "vehicles"
