@@ -14,10 +14,10 @@
       <%= yield %>
       <div class="flash-messages">
         <% if flash[:notice] %>
-          <%=  notice %>
+          <%= notice %>
         <% end %>
         <% if flash[:alert] %>
-          <%=  alert %>
+          <%= alert %>
         <% end %>
       </div>
     </div>

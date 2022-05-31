@@ -4,6 +4,7 @@
     <div class="service-order-wrapper">
       <div>Code: <%= link_to service_order.code, service_order_path(service_order) %></div>
       <div>Status: <%= service_order.status.upcase %></div>
+      <%= service_order.vehicle ? "Vehicle: #{service_order.vehicle.model}" : 'No vehicle' %>
     </div>
   <% end %>
 </div>

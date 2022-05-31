@@ -11,6 +11,8 @@
         <div class="nav-button"><%= link_to 'Company', company_path(current_user.company.id) %></div>
         <div class="nav-button"><%= link_to 'Vehicles', company_vehicles_path(current_user.company.id) %></div>
         <div class="nav-button"><%= link_to 'Service Orders', service_orders_path %></div>
+        <div class="nav-button"><%= link_to 'Prices', service_orders_path %></div>
+        <div class="nav-button"><%= link_to 'Time Estimative', service_orders_path %></div>
       <% end %>
       <div><%= current_user.email %></div>
       <div class="nav-button">

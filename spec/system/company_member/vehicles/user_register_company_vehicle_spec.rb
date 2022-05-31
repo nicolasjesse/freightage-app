@@ -46,6 +46,6 @@ describe 'User register company vehicle' do
     expect(page).to have_content 'BMW'
     expect(page).to have_content 'M3'
     expect(page).to have_content '2020'
-    expect(page).to have_content 'Vehicle succesfully registered'
+    expect(page).to have_content 'Vehicle successfully registered'
   end
 end

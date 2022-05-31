@@ -34,7 +34,7 @@ describe 'User register company' do
     click_on 'Create Company'
 
     expect(current_path).to eq companies_path
-    expect(page).to have_content 'Company succesfully registered'
+    expect(page).to have_content 'Company successfully registered'
     expect(page).to have_content 'Fic Entregas'
   end
 end

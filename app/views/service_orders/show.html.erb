@@ -14,6 +14,14 @@
   <div>Recipient Identity: <%= @service_order.recipient_id %></div>
   <div>Company: <%= @service_order.company.brand_name %></div>
   <div>Total cost: <%= number_to_currency(@service_order.cost) %></div>
+  <div>Vehicle: <%= @service_order.vehicle ? "#{@service_order.vehicle.brand} #{@service_order.vehicle.model} #{@service_order.vehicle.plate}" : 'No vehicle' %></div>
   <% if current_user.user_type == 'company_member' %>
+    <% if @service_order.pending? %>
+      <%= link_to 'Change vehicle', edit_vehicle_service_order_path %>
+      <%= button_to 'Approve Service Order', approve_service_order_path(@service_order.id) %>
+      <%= button_to 'Disapprove Service Order', disapprove_service_order_path(@service_order.id) %>
+    <% elsif @service_order.approved? %>
+      <%= button_to 'Finish Service Order', finish_service_order_path(@service_order.id) %>
+    <% end %>
   <% end %>
 </div>

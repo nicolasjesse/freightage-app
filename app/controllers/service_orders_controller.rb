@@ -28,11 +28,49 @@ class ServiceOrdersController < ApplicationController
     service_order_params = params.require(:service_order).permit(:product_address,
                           :product_code, :recipient_id, :recipient_address, :recipient_name)
     if @service_order.update(service_order_params)
-      flash.now[:notice] = I18n.t("flashes.service_order_create_success")
+      flash[:notice] = I18n.t("flashes.service_order_create_success")
       return redirect_to service_order_path(@service_order)
     else
       flash.now[:notice] = I18n.t("flashes.service_order_create_error")
       render 'edit'
     end
+  end
+
+  def edit_vehicle
+    @service_order = ServiceOrder.find(params[:id])
+    @vehicles = Vehicle.where('company_id = ?', @service_order.company_id)
+  end
+
+  def update_vehicle
+    @service_order = ServiceOrder.find(params[:id])
+    if @service_order.update(vehicle_id: params[:vehicle_id])
+      flash[:notice] = I18n.t("flashes.service_order_vehicle_change_success")
+    else
+      flash[:notice] = I18n.t("flashes.service_order_vehicle_change_error")
+    end
+    redirect_to service_order_path(@service_order)
+  end
+
+  def approve
+    @service_order = ServiceOrder.find(params[:id])
+    if @service_order.is_approvable
+      flash[:notice] = I18n.t("flashes.service_order_approve_success")
+      @service_order.approved!
+    else
+      flash[:notice] = I18n.t("flashes.service_order_approve_error")
+    end
+    redirect_to service_order_path(@service_order.id)
+  end
+
+  def disapprove
+    @service_order = ServiceOrder.find(params[:id])
+    @service_order.disapproved!
+    redirect_to service_order_path(@service_order.id)
+  end
+
+  def finish
+    @service_order = ServiceOrder.find(params[:id])
+    @service_order.finished!
+    redirect_to service_order_path(@service_order.id)
   end
 end

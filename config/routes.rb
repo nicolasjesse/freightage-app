@@ -7,9 +7,17 @@ Rails.application.routes.draw do
     resources :vehicles, only: [:index, :show, :new, :create], shallow: true
   end
   
-  resources :prices, only: [] do
+  resources :prices, only: [:index, :new, :create] do
     get 'search', on: :collection
   end
 
-  resources :service_orders, only: [:index, :new, :create, :show, :edit, :update]
+  resources :service_orders, only: [:index, :new, :create, :show, :edit, :update] do
+    member do
+      post 'approve'
+      post 'disapprove'
+      post 'finish'
+      get 'edit-vehicle'
+      post 'update-vehicle'
+    end
+  end
 end
