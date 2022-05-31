@@ -1,8 +1,14 @@
 class ServiceOrdersController < ApplicationController
   def show
+    @service_order = ServiceOrder.find(params[:id])
   end
 
-  def new
+  def index
+    if current_user.user_type == 'admin'
+      @service_orders = ServiceOrder.all
+    else
+      @service_orders = ServiceOrder.where('company_id = ?', current_user.company.id)
+    end
   end
 
   def create
@@ -18,14 +24,14 @@ class ServiceOrdersController < ApplicationController
   end
 
   def update
+    @service_order = ServiceOrder.find(params[:id])
     service_order_params = params.require(:service_order).permit(:product_address,
                           :product_code, :recipient_id, :recipient_address, :recipient_name)
-    @service_order = ServiceOrder.find(params[:id])
     if @service_order.update(service_order_params)
-      flash.now[:notice] = I18n.t("flashes.company_create_success")
+      flash.now[:notice] = I18n.t("flashes.service_order_create_success")
       return redirect_to service_order_path(@service_order)
     else
-      flash.now[:notice] = I18n.t("flashes.company_create_error")
+      flash.now[:notice] = I18n.t("flashes.service_order_create_error")
       render 'edit'
     end
   end

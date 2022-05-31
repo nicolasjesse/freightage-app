@@ -149,6 +149,18 @@ body {
   margin-left: 20px;
 }
 
+.service-order-wrapper {
+  margin-bottom: 10px;
+}
+
+.vehicle-wrapper {
+  margin-bottom: 10px;
+}
+
+.button-create-vehicle {
+  margin-bottom: 15px;
+}
+
 /*
 
 button {

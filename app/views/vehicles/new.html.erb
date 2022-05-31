@@ -1,0 +1,26 @@
+<div class="form-wrapper">
+  <h2>Create Vehicle</h2>
+  <%= form_with(url: company_vehicles_path) do |form| %>
+    <div class="input-wrapper">
+      <%= form.label :plate %>
+      <%= form.text_field :plate %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :brand %>
+      <%= form.text_field :brand %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :model %>
+      <%= form.text_field :model %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :year_of_fabrication, 'Year' %>
+      <%= form.text_field :year_of_fabrication %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :capacity %>
+      <%= form.number_field :capacity %>
+    </div>
+    <%= form.submit 'Register Vehicle' %>
+  <% end %>
+</div>

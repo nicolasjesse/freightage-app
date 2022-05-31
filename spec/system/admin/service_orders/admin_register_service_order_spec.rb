@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User register service order' do
+describe 'Admin register service order' do
   it 'successfully' do
     company = Company.create!(corporate_name: 'Fic SMLT', brand_name: 'Fic Entregas',
                               email_domain: 'fic.com.br', cnpj: '58.139.059/0001-45',

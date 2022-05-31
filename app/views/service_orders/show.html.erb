@@ -1,0 +1,19 @@
+<div class="show-service-order">
+  <div>Status: <%= @service_order.status.upcase %></div>
+  <div>Code: <%= @service_order.code %></div>
+  <div>Product Address: <%= @service_order.product_address %></div>
+  <div>Product Code: <%= @service_order.product_code %></div>
+  <div>
+    Product Volume:
+    <%= @service_order.product_height *
+      @service_order.product_width *
+      @service_order.product_depth %>
+  </div>
+  <div>Recipient Address: <%= @service_order.recipient_address %></div>
+  <div>Recipient Name: <%= @service_order.recipient_name %></div>
+  <div>Recipient Identity: <%= @service_order.recipient_id %></div>
+  <div>Company: <%= @service_order.company.brand_name %></div>
+  <div>Total cost: <%= number_to_currency(@service_order.cost) %></div>
+  <% if current_user.user_type == 'company_member' %>
+  <% end %>
+</div>

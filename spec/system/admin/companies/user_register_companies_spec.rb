@@ -10,11 +10,11 @@ describe 'User register company' do
     click_on 'New Company'
 
     expect(page).to have_content 'Register a Company'
-    expect(page).to have_field('Brand name')
-    expect(page).to have_field('Corporate name')
-    expect(page).to have_field('Email domain')
-    expect(page).to have_field('Cnpj')
-    expect(page).to have_field('Address')
+    expect(page).to have_field 'Brand name'
+    expect(page).to have_field 'Corporate name'
+    expect(page).to have_field 'Email domain'
+    expect(page).to have_field 'Cnpj'
+    expect(page).to have_field 'Address'
   end
 
   it 'successfully' do

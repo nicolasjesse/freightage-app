@@ -1,0 +1,9 @@
+<h2>Service Orders</h2>
+<div class="list-service-order">
+  <% @service_orders.each do |service_order| %>
+    <div class="service-order-wrapper">
+      <div>Code: <%= link_to service_order.code, service_order_path(service_order) %></div>
+      <div>Status: <%= service_order.status.upcase %></div>
+    </div>
+  <% end %>
+</div>

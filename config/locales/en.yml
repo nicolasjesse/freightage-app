@@ -10,4 +10,8 @@ en:
   flashes:
     company_create_success: 'Company succesfully registered'
     company_create_error: 'Company could not be registered'
+    vehicle_create_success: 'Vehicle succesfully registered'
+    vehicle_create_error: 'Vehicle could not be registered'
+    service_order_create_success: 'Service Order succesfully registered'
+    service_order_create_error: 'Service Order could not be registered'
 

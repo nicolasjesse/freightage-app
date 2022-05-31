@@ -17,13 +17,13 @@ describe 'User views specific company' do
     click_on 'Companies'
     click_on 'Fic Entregas'
 
-    expect(page).to have_content('Company Details')
-    expect(page).to have_content('Fic SMLT')
-    expect(page).to have_content('1234')
-    expect(page).to have_content('2')
-    expect(page).to have_content('0.67')
-    expect(page).to have_content('10000')
-    expect(page).to have_content('0.81')
-    expect(page).to have_content('3')
+    expect(page).to have_content 'Company Details'
+    expect(page).to have_content 'Fic SMLT'
+    expect(page).to have_content '1234'
+    expect(page).to have_content '2'
+    expect(page).to have_content '0.67'
+    expect(page).to have_content '10000'
+    expect(page).to have_content '0.81'
+    expect(page).to have_content '3'
   end
 end
