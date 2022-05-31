@@ -1,0 +1,61 @@
+<div class="form-wrapper">
+  <h2><%= I18n.t("pages.prices.new.title") %></h2>
+  <%= form_with model: [@company, @price] do |form| %>
+    <div class="input-wrapper">
+      <%= form.label :min_product_volume %>
+      <%= form.number_field :min_product_volume, step: 0.01, value: 0 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @price.errors.messages[:min_product_volume].each do |min_product_volume_error| %>
+        <div class="input-errors">
+          <%= min_product_volume_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :max_product_volume %>
+      <%= form.number_field :max_product_volume, step: 0.01, value: 0 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @price.errors.messages[:max_product_volume].each do |max_product_volume_error| %>
+        <div class="input-errors">
+          <%= max_product_volume_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :min_product_weight %>
+      <%= form.number_field :min_product_weight, step: 0.01, value: 0 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @price.errors.messages[:min_product_weight].each do |min_product_weight_error| %>
+        <div class="input-errors">
+          <%= min_product_weight_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :max_product_weight %>
+      <%= form.number_field :max_product_weight, step: 0.01, value: 0 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @price.errors.messages[:max_product_weight].each do |max_product_weight_error| %>
+        <div class="input-errors">
+          <%= max_product_weight_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :value_by_km %>
+      <%= form.number_field :value_by_km, step: 10, value: 1 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @price.errors.messages[:value_by_km].each do |value_by_km_error| %>
+        <div class="input-errors">
+          <%= value_by_km_error %>
+        </div>
+      <% end %>
+    </div>
+    <%= form.submit I18n.t("pages.prices.new.form.submit") %>
+  <% end %>
+</div>

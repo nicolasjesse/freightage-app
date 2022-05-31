@@ -1,0 +1,5 @@
+<%= form_with(url: update_vehicle_service_order_path(@service_order.id)) do |form| %>
+  <%= form.label :vehicle_id, I18n.t("pages.service_orders.edit_vehicle.form.vehicle") %>
+  <%= form.collection_select :vehicle_id, @vehicles, :id, :brand, {:selected => @service_order.vehicle ? @service_order.vehicle.id : @vehicles.first.id} %>
+  <%= form.submit I18n.t("pages.service_orders.edit_vehicle.form.submit") %>
+<% end %>

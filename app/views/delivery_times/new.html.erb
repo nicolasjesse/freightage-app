@@ -1,0 +1,39 @@
+<div class="form-wrapper">
+  <h2><%= I18n.t("pages.delivery_times.title") %></h2>
+  <%= form_with model: [@company, @delivery_time] do |form| %>
+    <div class="input-wrapper">
+      <%= form.label :min_distance %>
+      <%= form.number_field :min_distance, step: 1, value: 0 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @delivery_time.errors.messages[:min_distance].each do |min_distance_error| %>
+        <div class="input-errors">
+          <%= min_distance_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :max_distance %>
+      <%= form.number_field :max_distance, step: 1, value: 0 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @delivery_time.errors.messages[:max_distance].each do |max_distance_error| %>
+        <div class="input-errors">
+          <%= max_distance_error %>
+        </div>
+      <% end %>
+    </div>
+    <div class="input-wrapper">
+      <%= form.label :days %>
+      <%= form.number_field :days, step: 1, value: 0 %>
+    </div>
+    <div class="input-errors-wrapper">
+      <% @delivery_time.errors.messages[:days].each do |days_error| %>
+        <div class="input-errors">
+          <%= days_error %>
+        </div>
+      <% end %>
+    </div>
+    <%= form.submit I18n.t("pages.delivery_times.form.submit") %>
+  <% end %>
+</div>

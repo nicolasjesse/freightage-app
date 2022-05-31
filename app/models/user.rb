@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   def assigns_type_and_company
     email_domain = email.split('@')[1]
-    if email_domain == 'sistemadefrete.com.br'
+    if email_domain == 'sistemadefrete.com.br' || email_domain == 'freightagesystem.com'
       self.user_type = 'admin'
     else
       self.company = Company.find_by(email_domain: email_domain)

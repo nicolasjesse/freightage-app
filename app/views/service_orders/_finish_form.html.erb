@@ -1,0 +1,58 @@
+<%= form_with model: @service_order do |form| %>
+  <div class="input-wrapper">
+    <%= form.label :product_address %>
+    <%= form.text_field :product_address %>
+  </div>
+  <div class="input-errors-wrapper">
+    <% @service_order.errors.messages[:product_address].each do |product_address_error| %>
+      <div class="input-errors">
+        <%= product_address_error %>
+      </div>
+    <% end %>
+  </div>
+  <div class="input-wrapper">
+    <%= form.label :product_code %>
+    <%= form.text_field :product_code %>
+  </div>
+  <div class="input-errors-wrapper">
+    <% @service_order.errors.messages[:product_code].each do |product_code_error| %>
+      <div class="input-errors">
+        <%= product_code_error %>
+      </div>
+    <% end %>
+  </div>
+  <div class="input-wrapper">
+    <%= form.label :recipient_address %>
+    <%= form.text_field :recipient_address %>
+  </div>
+  <div class="input-errors-wrapper">
+    <% @service_order.errors.messages[:recipient_address].each do |recipient_address_error| %>
+      <div class="input-errors">
+        <%= recipient_address_error %>
+      </div>
+    <% end %>
+  </div>
+  <div class="input-wrapper">
+    <%= form.label :recipient_name %>
+    <%= form.text_field :recipient_name %>
+  </div>
+  <div class="input-errors-wrapper">
+    <% @service_order.errors.messages[:recipient_name].each do |recipient_name_error| %>
+      <div class="input-errors">
+        <%= recipient_name_error %>
+      </div>
+    <% end %>
+  </div>
+  <div class="input-wrapper">
+    <%= form.label :recipient_id, 'Recipient id' %>
+    <%= form.text_field :recipient_id %>
+  </div>
+  <div class="input-errors-wrapper">
+    <% @service_order.errors.messages[:recipient_id].each do |recipient_id_error| %>
+      <div class="input-errors">
+        <%= recipient_id_error %>
+      </div>
+    <% end %>
+  </div>
+  <%= form.submit 'Save' %>
+<% end %>

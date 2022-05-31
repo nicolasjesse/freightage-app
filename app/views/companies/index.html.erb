@@ -1,4 +1,15 @@
 <div class="button-create-company">
   <%= link_to I18n.t("pages.companies.index.button_create"), new_company_path %>
 </div>
-<%= render 'list' %>
+<div class="companies-wrapper">
+  <% if @companies.any? %>
+    <% @companies.each do |company| %>
+      <div class="company-card">
+        <div class="brand-name"><%= link_to company.brand_name, company_path(company) %></div>
+        <div class="email-domain"><%= company.email_domain %></div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="empty-warn"><%= link_to I18n.t("pages.companies.index.empty_warn") %></div>
+  <% end %>
+</div>

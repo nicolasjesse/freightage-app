@@ -1,0 +1,16 @@
+<div>
+  <%= form_with(url: track_service_order_path, :method => :get) do |form| %>
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+    <%= form.submit I18n.t("pages.routes.track.form.submit") %>
+  <% end %>
+</div>
+<div>
+  <% @routes.each do |route|%>
+    <div>
+      <%= route.latitude %>
+      <%= route.longitude %>
+      <%= route.date_time %>
+    </div>
+  <% end %>
+</div>

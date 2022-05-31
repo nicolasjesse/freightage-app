@@ -1,0 +1,70 @@
+<div class="search-prices">
+  <div class="search-form-wrapper">
+    <%= form_with(url: search_prices_path, method: :get) do |form| %>
+      <div class="search-form">
+        <div class="fields-wrapper">
+          <div class="form-field">
+            <%= form.label :height, I18n.t("pages.prices.search.form.height") %>
+            <%= form.number_field :height, step: 0.01, value: 0 %>
+          </div>
+          <div class="form-field">
+            <%= form.label :width, I18n.t("pages.prices.search.form.width") %>
+            <%= form.number_field :width, step: 0.01, value: 0 %>
+          </div>
+          <div class="form-field">
+            <%= form.label :depth, I18n.t("pages.prices.search.form.depth") %>
+            <%= form.number_field :depth, step: 0.01, value: 0 %>
+          </div>
+          <div class="form-field">
+            <%= form.label :weight, I18n.t("pages.prices.search.form.weight") %>
+            <%= form.number_field :weight, step: 0.01, value: 0 %>
+          </div>
+          <div class="form-field">
+            <%= form.label :distance, I18n.t("pages.prices.search.form.distance") %>
+            <%= form.number_field :distance, value: 1 %>
+          </div>
+        </div>
+        <div class="search-button">
+          <%= form.submit I18n.t("pages.prices.search.form.submit") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="search-results-wrapper">
+    <% if @prices.any? %>
+      <div class="prices-wrapper">
+        <% @prices.each do |price| %>
+          <div class="price">
+            <div class="info">
+              <div><%= I18n.t("pages.prices.search.result.company") %><%= price.company.brand_name %></div>
+              <div><%= I18n.t("pages.prices.search.result.price") %><%= number_to_currency(price.value_by_km * @distance) %></div>
+              <div><%= I18n.t("pages.prices.search.result.estimated") %><%= price.company.get_delivery_time(params[:distance]) %></div>
+            </div>
+            <div class="price-button">
+              <%= form_with(url: service_orders_path, method: :post) do |form| %>
+                <%= form.hidden_field :height %>
+                <%=  hidden_field_tag 'height', params[:height] %>
+                <%= form.hidden_field :width %>
+                <%=  hidden_field_tag 'width', params[:width] %>
+                <%= form.hidden_field :depth %>
+                <%=  hidden_field_tag 'depth', params[:depth] %>
+                <%= form.hidden_field :weight %>
+                <%=  hidden_field_tag 'weight', params[:weight] %>
+                <%= form.hidden_field :distance %>
+                <%=  hidden_field_tag 'distance', params[:distance] %>
+                <%= form.hidden_field :company %>
+                <%=  hidden_field_tag 'company', price.company.id %>
+                <%= form.hidden_field :price %>
+                <%=  hidden_field_tag 'price', price.id %>
+
+                <%=  form.submit I18n.t("pages.prices.search.result.submit") %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <h2><%= I18n.t("pages.prices.search.result.no_prices_found") %></h2>
+    <% end %>
+  </div>
+</div>

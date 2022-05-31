@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FreightageApp</title>
+    <title><%= I18n.t("pages.layouts.title") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,38 +9,15 @@
     <%= stylesheet_link_tag "application" %>
   </head>
   <body>
-    <header class="app-header">
-      <div class="header-title">Freightage</div>
-      <nav class="header-nav">
-        <a href="<%= companies_path %>">
-          <div class="nav-button">
-            <%= I18n.t("pages.home.companies") %>
-          </div>
-        </a>
-        <% if user_signed_in? %>
-          <div>
-            <%= current_user.email %>
-          </div>
-          <div class="nav-button">
-            <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
-          </div>
-        <% else %>
-          <a href="<%= new_user_session_path %>">
-            <div class="nav-button">
-              Log in
-            </div>
-          </a>
-        <% end %>
-      </nav>
-    </header>
+    <%= render 'layouts/header' %>
     <div class="content">
       <%= yield %>
       <div class="flash-messages">
         <% if flash[:notice] %>
-          <%=  notice %>
+          <%= notice %>
         <% end %>
         <% if flash[:alert] %>
-          <%=  alert %>
+          <%= alert %>
         <% end %>
       </div>
     </div>
